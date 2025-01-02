@@ -31,7 +31,7 @@ Vote Counts:
 
 User Profile:
 /profile: GET - Get the user's profile information.
-/profile/pasword: PUT - Chnage the user's password.
+/profile/pasword: PUT - Change the user's password.
 
 Admin Candidate Management:
 /candidates: POST - Create a new candidate.
