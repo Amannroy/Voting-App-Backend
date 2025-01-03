@@ -79,6 +79,7 @@ export const loginService = async (aadharCardNumber, password) => {
     // Generate a JWT Token
     const payload = {
       id: user.id,
+      role: user.role,
     };
 
     const token = generateToken(payload);

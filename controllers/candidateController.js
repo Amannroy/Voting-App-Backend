@@ -90,8 +90,8 @@ export const deleteCandidateController = async (req, res) => {
 };
 
 export const getVotingController = async (req, res) => {
-  const candidateID = req.param.candidateID;
-  userId = req.user.id;
+  const candidateID = req.params.candidateID;
+  const userID = req.user.id;
 
   try {
     // Call service to handle voting logic
@@ -100,23 +100,24 @@ export const getVotingController = async (req, res) => {
     res.status(200).json({ message: "Vote Recorded Successfully", result });
   } catch (error) {
     console.error("Vote Candidate Controller Error:", error.message);
-
-    if (error.statusCode) {
-      return res.status(error.statusCode).json({ message: error.message });
-    }
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
 export const countVotingController = async (req, res) => {
   try {
+    console.log("Request URL:", req.url);
+    console.log("Request Params:", req.params); // Debug log
+    console.log("Request Query:", req.query);   // Debug log
+
     const voteRecord = await getVoteCountService();
     return res.status(200).json(voteRecord);
   } catch (error) {
-    console.error(error);
+    console.error("Error in countVotingController:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 
 
 export const allCandidatesController = async(req, res) => {

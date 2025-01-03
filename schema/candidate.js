@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const candidateSchema = new mongoose.Schema({
   name: {
-    String,
+    type:  String,
     required: true,
   },
   party: {
@@ -22,13 +22,13 @@ const candidateSchema = new mongoose.Schema({
       },
       votedAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now()
       },
     },
   ],
   voteCount: {
     type: Number,
-    default: 0,
+    default: 0
   },
 });
 

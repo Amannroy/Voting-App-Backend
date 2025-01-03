@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import { PORT } from "./config/serverConfig.js";
 import connectDB from "./config/dbConfig.js";
 import userRoutes from  "./routes/userRoutes.js";
+import candidateRoutes from "./routes/candidateRoutes.js";
 
 app.use(bodyParser.json());
 //app.use(cors());
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/user', userRoutes);
+app.use('/candidate', candidateRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);

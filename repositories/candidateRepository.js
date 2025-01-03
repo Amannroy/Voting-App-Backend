@@ -69,13 +69,18 @@ export const updateCandidateVotes = async(candidate, userID) => {
 }
 
 // Fetching candidates from database and sort vote count in descending order
-export const findAllCandidates = async() => {
-  try{
-     return await Candidate.find().sort({voteCount: -1})
-  }catch(error){
-     throw new Error("Error fetching candidates from database");
+export const findAllCandidates = async () => {
+  try {
+    console.log("Fetching all candidates");
+    const candidates = await Candidate.find().sort({ voteCount: -1 });
+    console.log("Candidates fetched:", candidates); // Debug log
+    return candidates;
+  } catch (error) {
+    console.error("Error in findAllCandidates:", error.message);
+    throw error;
   }
-}
+};
+
 
 // Get List of all candidates with only name and party fields
 export const findAllCandidatesAndSelectOnlyNameAndPartyExcludingID = async() => {
@@ -83,6 +88,6 @@ export const findAllCandidatesAndSelectOnlyNameAndPartyExcludingID = async() => 
      // Find all candidates and select only the name and party fields, excluding _id
      return await Candidate.find({}, 'name party -_id')
   }catch(error){
-     throw new Error("Error fetching candidates from database");
+     throw error;
   }
 }

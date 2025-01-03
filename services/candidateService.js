@@ -79,23 +79,28 @@ export const voteForCandidateService = async(candidateID, userID) => {
     }
 }
 
-export const getVoteCountService = async() => {
-    try{
-       // Fetch all candidates from repository
-      const candidates = await findAllCandidates();
-         
-      // Map to return only name and vote count
-       return candidates.map(candidate => ({party: candidate.party, count: candidate.voteCount}));
-
-    }catch(error){
-       throw new Error("Error fetching vote count");
+export const getVoteCountService = async () => {
+    try {
+      console.log("Service function called");
+      const candidates = await findAllCandidates(); // Ensure it doesn't expect "_id"
+  
+      const voteRecord = candidates.map((data) => ({
+        party: data.party,
+        count: data.voteCount,
+      }));
+      console.log("Vote Record:", voteRecord); // Debug log
+      return voteRecord;
+    } catch (error) {
+      console.error("Error in getVoteCountService:", error.message);
+      throw error;
     }
-}
+  };
+  
 
 export const getAllCandidates = async() => {
     try{
         return await findAllCandidatesAndSelectOnlyNameAndPartyExcludingID();
     }catch(error){
-        throw new Error("Error Fetching Candidates");
+        throw error;
     }
 }
