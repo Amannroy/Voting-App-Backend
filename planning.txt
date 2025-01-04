@@ -8,7 +8,7 @@ Services?
 Voting App functionality
 1) User SignIn/ SignUp
 2) See the list of candidates
-3) Vote one of the candidate, afyer voting, user can't vote again
+3) Vote one of the candidate, after voting, user can't vote again
 4) There is a route which shows the list of candidates and their live vote counts sorted by their vote count
 5) User data must contain their one unique government id proof name: Aadhar card number
 6) There should be one admin who can only maintain the table of candidates 
