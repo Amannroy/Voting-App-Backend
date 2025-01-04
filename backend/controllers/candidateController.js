@@ -107,8 +107,8 @@ export const getVotingController = async (req, res) => {
 export const countVotingController = async (req, res) => {
   try {
     console.log("Request URL:", req.url);
-    console.log("Request Params:", req.params); // Debug log
-    console.log("Request Query:", req.query);   // Debug log
+    console.log("Request Params:", req.params); 
+    console.log("Request Query:", req.query);   
 
     const voteRecord = await getVoteCountService();
     return res.status(200).json(voteRecord);

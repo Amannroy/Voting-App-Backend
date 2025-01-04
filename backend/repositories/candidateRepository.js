@@ -73,7 +73,7 @@ export const findAllCandidates = async () => {
   try {
     console.log("Fetching all candidates");
     const candidates = await Candidate.find().sort({ voteCount: -1 });
-    console.log("Candidates fetched:", candidates); // Debug log
+    console.log("Candidates fetched:", candidates); 
     return candidates;
   } catch (error) {
     console.error("Error in findAllCandidates:", error.message);

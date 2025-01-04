@@ -82,13 +82,13 @@ export const voteForCandidateService = async(candidateID, userID) => {
 export const getVoteCountService = async () => {
     try {
       console.log("Service function called");
-      const candidates = await findAllCandidates(); // Ensure it doesn't expect "_id"
+      const candidates = await findAllCandidates(); 
   
       const voteRecord = candidates.map((data) => ({
         party: data.party,
         count: data.voteCount,
       }));
-      console.log("Vote Record:", voteRecord); // Debug log
+      console.log("Vote Record:", voteRecord); 
       return voteRecord;
     } catch (error) {
       console.error("Error in getVoteCountService:", error.message);
