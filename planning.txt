@@ -1,9 +1,9 @@
 Voting Application
 A functionality where user can give vote to the given set of candidates
 
-Routes?
-Controllers?
-Services?
+We have to make our project structure like:
+Routes, Controllers, Services, Repositories, Schema, Models
+
 
 Voting App functionality
 1) User SignIn/ SignUp
